@@ -9,7 +9,7 @@ The Fallout: The Roleplaying Game character sheet web application is an interact
 - **Data Modification:** Users can modify the information they have entered in the data fields at any time.
 - **Data Validation:** The application validates user input and alerts them when their input is invalid. For example, it notifies users when string data is entered into a numerical field and vice versa.
 - **Automatic Calculations:** The application automatically calculates data, such as the required number of experience points to reach the next level of character growth, whenever possible.
-Data Saving: Users can save the data entered into the character sheet by clicking a Save button, which confirms the action before saving.
+- **Data Saving:** Users can save the data entered into the character sheet by clicking a Save button, which confirms the action before saving.
 - **Data Persistence:** The application automatically loads the most recently saved data into the character sheet fields whenever it is opened, ensuring users always have access to their latest data.
 
 ## Installation
