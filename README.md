@@ -23,7 +23,7 @@ cd fallout-character-sheet
 ~~~
 3. Open the "index.html" file in your preferred browser
 
-## Screenshots
+## Screenshot
 ![Screenshot](https://github.com/WortheyWebDev/fallout-character-sheet/blob/main/screenshots/character-sheet-screenshot.png)
 
 ---
