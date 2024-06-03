@@ -1,0 +1,940 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+body {
+    background-image: linear-gradient(to bottom right, black, #1c314b);
+    background-attachment: fixed;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#front,
+#back {
+    padding: 1rem;
+}
+
+#front {
+    display: flex;
+    flex-direction: column;
+    height: 55rem;
+    min-width: 42.5rem;
+    max-width: 42.5rem;
+    border: .5px solid #000;
+    background-image: url(images/paper-texture-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+    margin: 1rem;
+    box-shadow: rgba(206, 218, 217, .4);
+}
+
+#saveButton {
+    background-color: #325886;
+    color: #FEF265;
+    font-weight: bold;
+    padding: .2rem 1rem .2rem 1rem;
+    position: absolute;
+    margin-top: 13.5rem;
+    margin-left: 34.15rem;
+}
+
+#resetButton {
+    background-color: #325886;
+    color: #FEF265;
+    font-weight: bold;
+    padding: .2rem 1rem .2rem 1rem;
+    position: absolute;
+    margin-top: 13.5rem;
+    margin-left: 24.5rem;
+}
+
+#back {
+    display: flex;
+    height: 55rem;
+    min-width: 42.5rem;
+    max-width: 42.5rem;
+    border: .5px solid #000;
+    background-image: url(images/paper-texture-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+    margin: 1rem;
+}
+
+#backColumn1,
+#backColumn2 {
+    height: 100%;
+}
+
+#backColumn1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+}
+
+#backColumn2 {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding-top: .5rem;
+    padding-bottom: .9rem;
+}
+
+#capsSection {
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin: 1rem;
+    margin-top: -.8rem;
+    margin-right: -.5rem;
+    margin-bottom: -1rem;
+    margin-left: .8rem;
+}
+
+#caps {
+    display: flex;
+    font-size: 1.3rem;
+    padding-right: 2rem;
+    font-style: italic;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 80%;
+    height: 3rem;
+    z-index: 0;
+    background-color: peachpuff;
+    color: #FFF;
+    clip-path: polygon(0 0, 100% 9%, 100% 87%, 14% 100%);
+}
+
+.gear {
+    width: 50%;
+    margin-left: auto;
+    position: relative;
+    z-index: 1;
+}
+
+#strengthGear,
+#perceptionGear {
+    transform: rotate(25deg);
+}
+
+#enduranceGear {
+    transform: rotate(40deg);
+}
+
+#charismaGear,
+#agilityGear,
+#luckGear {
+    transform: rotate(-28deg);
+}
+
+#luckPointsGear {
+    position: absolute;
+    width: 4rem;
+    z-index: 2;
+    margin-left: 36.2rem;
+    margin-top: 6.2rem;
+    transform: rotate(-28deg);
+    z-index: 3;
+}
+
+#totalCaps {
+    position: absolute;
+    z-index: 2;
+    width: 20%;
+    height: 3rem;
+    margin-left: 10.265rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.sectionHeader {
+    display: flex;
+    width: 10rem;
+    color: #FFF;
+    align-self: flex-start;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    padding-top: none;
+    padding-bottom: none;
+    padding-right: 1rem;
+    margin-left: 1rem;
+    margin-bottom: -.5rem;
+    clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%);
+}
+
+#luckPointsHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: purple;
+    position: absolute;
+    clip-path: polygon(25% 0%, 100% 13%, 100% 93%, 0% 100%);
+    margin-left: 29rem;
+    margin-top: 7.9rem;
+    height: 2rem;
+    padding-left: .5rem;
+    font-style: italic;
+    z-index: 2;
+}
+
+#luckPointsValue {
+    position: absolute;
+    margin-top: 7.3rem;
+    margin-left: 37.22rem;
+    z-index: 4;
+    width: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+#skillsHeader {
+    margin-left: .8rem;
+    background-color: orange;
+    font-style: italic;
+}
+
+#ammoHeader {
+    margin-left: .8rem;
+    background-color: orange;
+    font-style: italic;
+}
+
+#gearHeader {
+    background-color: olivedrab;
+    margin-left: .8rem;
+    margin-bottom: -1.5rem;
+    font-style: italic;
+}
+
+#perkHeader {
+    background-color: blue;
+    margin-top: 1rem;
+    margin-left: 0;
+    font-style: italic;
+}
+
+#bioHeader {
+    margin-left: 0;
+    margin-top: 1rem;
+    background-color: purple;
+    font-style: italic;
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#ammoTable {
+    font-size: .8rem;
+    width: 90%;
+    margin: 1rem;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.skillTag {
+    display: flex;
+    justify-content: center;
+}
+
+#skillTable input {
+    text-align: center;
+    height: 1.3rem;
+}
+
+#skillTable tr:nth-child(even) {
+    background-color: #FFC986;
+}
+
+#skillTable tr:nth-child(odd) {
+    background-color: #FFEACF;
+}
+
+#skillsNameHeader,
+.skillTitle {
+    padding-left: .3rem;
+}
+
+.skillTitle {
+    font-family: initial;
+}
+
+#gearTable {
+    font-size: .8rem;
+    width: 90%;
+    margin: 2rem;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: #FFF;
+}
+
+#perkTable {
+    font-size: .8rem;
+    width: 97%;
+    margin-top: 1rem;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: #FFF;
+}
+
+#biographyArea {
+    width: 97%;
+    height: 40%;
+    margin-top: 1rem;
+    border: 1px solid #000;
+}
+
+#ammoQuantity {
+    width: 30%;
+    text-align: center;
+}
+
+#gearWeight {
+    width: 20%;
+    text-align: center;
+}
+
+#perkTable {
+    padding-left: -1rem;
+}
+
+#gearItem,
+#ammoCaliber {
+    border-right: 1px solid #FFF;
+    padding-left: .4rem;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: .2rem;
+    border: none;
+    font-weight: bold;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.tableHeader {
+    padding: .1rem;
+    background-color: #000;
+    color: #FFF;
+    font-size: .8rem;
+}
+
+td,
+th {
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+
+#currentWeight,
+#maxWeight {
+    text-align: right;
+    background-color: #000;
+    color: #FFF;
+    padding-right: .5rem;
+}
+
+#currentWeight {
+    border-bottom: 1px solid #FFF;
+}
+
+textarea {
+    resize: none;
+    border: none;
+    padding: .2rem;
+    width: 100%;
+    vertical-align: middle;
+}
+
+#perkName {
+    width: 30%;
+    padding-left: .4rem;
+    border-right: 1px solid #FFF;
+}
+
+#perkRank {
+    width: 10%;
+    text-align: center;
+    border-right: 1px solid #FFF;
+}
+
+#perkEffect {
+    text-align: center;
+}
+
+.rankField {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#frontRow1 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 10%;
+    margin-bottom: .5rem;
+}
+
+#falloutLogo {
+    height: 70%;
+}
+
+#charNameTable {
+    height: 80%;
+    width: 30%;
+    background-color: #FFF;
+}
+
+#charNameTable input {
+    font-style: italic;
+    font-size: 1.3rem;
+    padding-left: .5rem;
+}
+
+#charNameHeader {
+    height: 10%;
+    padding-left: .5rem;
+}
+
+#xpTable {
+    width: 40%;
+    margin-right: 1.5rem;
+}
+
+#xpTable input {
+    font-size: .8rem;
+    font-weight: normal;
+    background-color: #FFF;
+}
+
+#xpTable .tableHeader {
+    width: 33%;
+    padding-left: .5rem;
+}
+
+#levelGear {
+    position: absolute;
+    z-index: 1;
+    height: 108%;
+    left: 33.8rem;
+}
+
+#charLevel {
+    position: absolute;
+    z-index: 2;
+    width: 2.4rem;
+    font-size: 1.5rem;
+    font-style: italic;
+    text-align: center;
+    top: 2rem;
+    left: 35.53rem;
+}
+
+#levelHeader {
+    position: absolute;
+    z-index: 2;
+    font-weight: bold;
+    top: .8rem;
+    left: 35.85rem;
+}
+
+#frontRow2 {
+    display: flex;
+    flex-direction: column;
+    height: 15%;
+    margin-bottom: .5rem;
+}
+
+#specialStats {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    height: 40%;
+}
+
+.specialStat {
+    font-style: italic;
+    position: relative;
+    padding: 1rem;
+    color: #FFF;
+    z-index: -1
+}
+
+#strength {
+    background-color: green;
+    position: absolute;
+    margin-top: .4rem;
+    margin-left: -33.5rem;
+    padding-bottom: 2rem;
+    clip-path: polygon(0 0, 90% 9%, 100% 100%, 20% 100%);
+}
+
+#strengthStat {
+    position: absolute;
+    z-index: 2;
+    width: 2rem;
+    height: 3rem;
+    margin-top: 3.85rem;
+    margin-left: -33.2rem;
+    text-align: center;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#perception {
+    background-color: brown;
+    position: absolute;
+    margin-top: .4rem;
+    margin-left: -22.5rem;
+    padding-bottom: 2rem;
+    clip-path: polygon(0 9%, 100% 0, 82% 100%, 25% 100%);
+}
+
+#perceptionStat {
+    position: absolute;
+    z-index: 2;
+    width: 2rem;
+    height: 3rem;
+    margin-top: 3.85rem;
+    margin-left: -22.1rem;
+    text-align: center;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#endurance {
+    background-color: blue;
+    position: absolute;
+    margin-top: .4rem;
+    margin-left: -11.5rem;
+    padding-bottom: 2rem;
+    clip-path: polygon(9% 16%, 94% 0, 100% 100%, 16% 100%);
+}
+
+#enduranceStat {
+    position: absolute;
+    z-index: 2;
+    width: 2rem;
+    height: 3rem;
+    margin-top: 3.85rem;
+    margin-left: -11rem;
+    text-align: center;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#charisma {
+    background-color: orange;
+    position: absolute;
+    margin-top: .4rem;
+    margin-left: -.3rem;
+    padding-bottom: 2rem;
+    clip-path: polygon(0 6%, 100% 0, 92% 100%, 16% 100%);
+}
+
+#charismaStat {
+    position: absolute;
+    z-index: 2;
+    width: 2rem;
+    height: 3rem;
+    margin-top: 3.85rem;
+    margin-left: 0rem;
+    text-align: center;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#intelligence {
+    background-color: burlywood;
+    position: absolute;
+    margin-top: .4rem;
+    margin-left: 11.3rem;
+    padding-bottom: 2rem;
+    clip-path: polygon(14% 5%, 92% 0, 94% 94%, 0 100%);
+}
+
+#intelligenceStat {
+    position: absolute;
+    z-index: 2;
+    width: 2rem;
+    height: 3rem;
+    margin-top: 3.85rem;
+    margin-left: 11.1rem;
+    text-align: center;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#agility {
+    background-color: salmon;
+    position: absolute;
+    margin-top: .4rem;
+    margin-left: 22.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 2rem;
+    clip-path: polygon(6% 0, 93% 7%, 100% 100%, 0 89%);
+}
+
+#agilityStat {
+    position: absolute;
+    z-index: 2;
+    width: 2rem;
+    height: 3rem;
+    margin-top: 3.85rem;
+    margin-left: 22.14rem;
+    text-align: center;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#luck {
+    background-color: purple;
+    position: absolute;
+    margin-top: .4rem;
+    margin-left: 32.5rem;
+    padding-left: 2rem;
+    padding-right: 1.5rem;
+    padding-bottom: 2rem;
+    clip-path: polygon(5% 0, 100% 6%, 95% 100%, 34% 100%);
+}
+
+#luckStat {
+    position: absolute;
+    z-index: 2;
+    width: 2rem;
+    height: 3rem;
+    margin-top: 3.85rem;
+    margin-left: 33.2rem;
+    text-align: center;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#statGears {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 65%;
+}
+
+#statGears img {
+    height: 100%;
+}
+
+#frontRow3 {
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+}
+
+#frontRow3Left {
+    height: 100%;
+    width: 40%;
+}
+
+#frontRow3Right {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 70%;
+    background-image: url(images/vault-boy-full.png);
+    background-size: 35%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+#frontRow3RightRow1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+}
+
+#meleeDamageGear {
+    position: absolute;
+    width: 13%;
+    left: 5rem;
+}
+
+#defenseGear {
+    position: absolute;
+    width: 13%;
+    left: 14.1rem;
+}
+
+#initiativeGear {
+    position: absolute;
+    width: 13%;
+    left: 23.18rem;
+}
+
+#initiativeGroup input {
+    position: absolute;
+    width: 1.65rem;
+    text-align: center;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+#meleeDamageValue {
+    left: 5.85rem;
+}
+
+#defenseValue {
+    left: 14.95rem;
+}
+
+#initiativeValue {
+    left: 24.02rem;
+}
+
+#combatHeader {
+    background-color: green;
+    margin-left: 0rem;
+}
+
+#initiativeGroup {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+#meleeDamage,
+#defense,
+#initiative {
+    background-color: #000;
+    color: #FFF;
+    width: 7.5rem;
+    font-size: .8rem;
+    padding-left: .3rem;
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+}
+
+#frontRow3RightRow2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(206, 218, 217, .4);
+    height: 50%;
+    width: 100%;
+}
+
+.poison {
+    width: 6rem;
+}
+
+.poison input {
+    text-align: center;
+}
+
+#health {
+    width: 8.5rem;
+}
+
+#health input {
+    width: 100%;
+    text-align: center;
+}
+
+.healthRow {
+    font-family: initial;
+    font-size: .8rem;
+    padding-left: .3rem;
+    height: 1.5rem;
+    background-color: #FFF;
+}
+
+#frontRow3RightRow3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(206, 218, 217, .4);
+    padding-left: .5rem;
+    padding-right: .5rem;
+    height: 50%;
+    width: 100%;
+}
+
+#frontRow3RightRow4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(206, 218, 217, .4);
+    height: 50%;
+    width: 100%;
+}
+
+#frontRow3RightRow5 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(206, 218, 217, .4);
+    padding-left: .5rem;
+    padding-right: .5rem;
+    height: 50%;
+    width: 100%;
+}
+
+.armor {
+    height: 2rem;
+}
+
+.armor .tableHeader {
+    text-align: center;
+}
+
+.armor input {
+    text-align: center;
+}
+
+.armor .damageType {
+    background-color: lightblue;
+    width: 3.5rem;
+    font-family: initial;
+    font-size: .8rem;
+    padding-right: .3rem;
+    text-align: right;
+}
+
+.armor .damageTypeValue {
+    width: 1.4rem;
+    text-align: center;
+}
+
+#frontRow4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+}
+
+#weaponsTable {
+    height: 90%;
+    width: 95%;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    border: 1px solid #000;
+}
+
+#weaponsTable input {
+    font-size: .7rem;
+    text-align: center;
+}
+
+#weaponsTable .tableHeader {
+    text-align: center;
+    border-right: 1px solid #FFF;
+}
+
+#weaponsTable #name {
+    text-align: left;
+    padding-left: .3rem;
+    width: 15%;
+}
+
+#weaponsTable #ammo {
+    width: 8%;
+}
+
+#weaponsTable #weight {
+    border-right: 1px solid #000;
+}
+
+#weaponsTable #targetNumber,
+#weaponsTable #tag,
+#weaponsTable #rate,
+#weaponsTable #range,
+#weaponsTable #weight {
+    width: 4.7%;
+}
+
+#weaponsTable #type {
+    width: 10%;
+}
+
+#weaponsTable #damage {
+    width: 7%;
+}
+
+#skillsNameHeader {
+    width: 65%;
+}
+
+#weaponsTable tr {
+    background-color: #FFF;
+}
+
+#skillsTagHeader,
+#skillsRankHeader {
+    width: 20%;
+    text-align: center;
+}
+
+#weaponsHeader {
+    background-color: brown;
+    margin-top: 1.2rem;
+    margin-bottom: .5rem;
+}
+
+.damageIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.damageIcon img {
+    height: 1.25rem;
+}
+
+.damageIcon input {
+    text-align: center;
+}
