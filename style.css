@@ -329,6 +329,10 @@ table {
     padding-left: .4rem;
 }
 
+input[type=number]{
+    -moz-appearance: textfield;
+}
+
 input[type="text"],
 input[type="number"] {
     width: 100%;
